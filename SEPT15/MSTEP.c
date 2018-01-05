@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int i,j,t,a[500][500],count,k,s,n,pi,pj;
+	scanf("%d",&t);
+	for(s=0;s<t;s++){
+	scanf("%d",&n);
+	count=0;
+	for(i=1;i<=n;i++)
+	for(j=1;j<=n;j++)
+	scanf("%d",&a[i][j]);
+	for(k=1;k<=n*n;k++)
+	{
+		for(i=1;i<=n;i++)
+		{
+			for(j=1;j<=n;j++)
+			{
+				if(a[i][j]==k)
+				{
+					if(k==1)
+					{
+						pi=i;
+						pj=j;
+					}
+					count=count+fabs(i-pi)+fabs(j-pj);
+					pi=i;
+					pj=j;
+				}
+			}
+		}
+	}
+	printf("\n%d\n",count);
+	pi=1;
+	pj=1;
+	}
+}
